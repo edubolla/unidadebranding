@@ -48,7 +48,7 @@
 
   .meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:46px}
   .field{
-    flex:1 1 260px;max-width:300px;
+    flex:1 1 200px;max-width:300px;
     display:flex;align-items:center;gap:6px;
     border:1.5px solid var(--ink);border-radius:999px;
     padding:6px 14px;background:#fff;
@@ -134,6 +134,7 @@
 
     <div class="meta">
       <div class="field"><label for="marca">MARCA:</label><input id="marca" name="marca" type="text"></div>
+      <div class="field"><label for="quem">QUEM PREENCHEU:</label><input id="quem" name="quem" type="text"></div>
       <div class="field"><label for="data">DATA:</label><input id="data" name="data" type="text" inputmode="numeric" placeholder="dd/mm/aaaa"></div>
     </div>
 
@@ -202,7 +203,8 @@ data.addEventListener('input', ()=>{
 document.getElementById('print').onclick = ()=>{
   const m = document.getElementById('marca').value.trim();
   const old = document.title;
-  document.title = 'Atributos da Marca' + (m ? ' - ' + m : '');
+  const q = document.getElementById('quem').value.trim();
+  document.title = 'Atributos da Marca' + (m ? ' - ' + m : '') + (q ? ' - ' + q : '');
   window.print();
   document.title = old;
 };
